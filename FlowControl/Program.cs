@@ -32,7 +32,24 @@ namespace FlowControl
         // and returns the valid int.
         public static int GetValidTemperature()
         {
-            throw new NotImplementedException();
+            while(true){
+            Console.WriteLine("Input the temperature (between -40 and 130)");
+            string userInput = Console.ReadLine();
+            if(int.TryParse(userInput, out int isinput)){
+                if(isinput>=-40 && isinput<135){
+                    return isinput;
+                }
+                else{
+                    Console.WriteLine("Not a valid temperature");
+                    //throw new ArgumentException();
+                }
+            }
+            else{
+                Console.WriteLine("Not a valid temperature");
+                //throw new ArgumentException();
+            }
+            }
+
         }
 
         // This method has one int parameter
@@ -49,7 +66,34 @@ namespace FlowControl
         // 100 <= n < 135 = hottest
         public static void GiveActivityAdvice(int temp)
         {
-            throw new NotImplementedException();
+            if(temp <-20){
+                Console.WriteLine("hella cold");
+            }
+            else if(-20 <= temp && temp <0){
+                Console.WriteLine("pretty cold");
+            }
+            else if(0<= temp && temp <20){
+                Console.WriteLine("cold");
+            }
+            else if(20<= temp && temp <40){
+                Console.WriteLine("thawed out");
+            }
+            else if(40<= temp && temp <60){
+                Console.WriteLine("feels like Autumn");
+            }
+            else if(60<= temp && temp <80){
+                Console.WriteLine("perfect outdoor workout temperature");
+            }
+            else if(80<= temp && temp <90){
+                Console.WriteLine("niiice");
+            }
+            else if(90<= temp && temp <100){
+                Console.WriteLine("hella hot");
+            }
+            else if(100<= temp && temp <135){
+                Console.WriteLine("hottest");
+            }
+            
         }
 
         // This method gets a username and password from the user
@@ -57,7 +101,12 @@ namespace FlowControl
         // names in the method.
         public static void Register()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Enter a username:");
+            username = Console.ReadLine();
+            Console.WriteLine("saved");
+            Console.WriteLine("Enter a password");
+            password = Console.ReadLine();
+            Console.WriteLine("saved");
         }
 
         // This method gets username and password from the user and
@@ -67,7 +116,16 @@ namespace FlowControl
         // prompted again for the username and password.
         public static bool Login()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Enter a username:");
+            string user = Console.ReadLine();
+            Console.WriteLine("Enter a password");
+            string pass = Console.ReadLine();
+            if(user == username && pass == password){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
 
         // This method as one int parameter.
@@ -77,7 +135,16 @@ namespace FlowControl
         // advice is given. 
         public static void GetTemperatureTernary(int temp)
         {
-           throw new NotImplementedException();
+            if(temp <=42){
+                Console.WriteLine($"{temp} is too cold!");
+            }
+            else if(temp >=43 && temp <=78){
+                Console.WriteLine($"{temp} is an ok temperature");
+            }
+            else if(temp >78){
+                Console.WriteLine($"{temp} is too hot!");
+            }
+           
         }
     }//end of Program()
 }
